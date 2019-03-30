@@ -7,9 +7,12 @@
 3. LombokPlugin 自动添加注解 `@Data`、`@Builder`、`@NoArgsConstructor`、`@AllArgsConstructor`
 4. `example` 文件指定存放位置,之后准备加上更名
 
+## 使用小技巧：
+   可生成基础的`BaseMapper`接口、xml，然后自己的 `Mapper` 继承 `BaseMapper`。在 业务层 注入`Mapper`即可拥有单表的基本操作。 `BaseMapper` 的 `xml`文件的`namespce` 要改成 `Mapper` 对应的 `namespce`
+
 ## 以上插件代码，有一部分是我在网上整理过来，感谢他们。
 
-### 有些人认为自动生成的代码 `sql` 不如自己写优化的好，观点没错。但是认为使用自动生成代码都是垃圾的就不敢恭维了。自动也可以生成sql，只生成 javaBean、空的 xml 文件。
+有些人认为自动生成的代码 `sql` 不如自己写优化的好，观点没错。但是认为使用自动生成代码都是垃圾的就不敢恭维了。自动也可以生成sql，只生成 javaBean、空的 xml 文件。
 
 ## 使用姿势
  `pom.xml`
