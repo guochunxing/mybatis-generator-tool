@@ -1,33 +1,44 @@
 # mybatis-generator-tool
 
+## 功能点：
+
+1. 重新生成文件，不在追加，改为覆盖
+2. db 字段描述直接转化为`javaBean`注释
+3. LombokPlugin 自动添加注解 `@Data`、`@Builder`、`@NoArgsConstructor`、`@AllArgsConstructor`
+4. `example` 文件指定存放位置,之后准备加上更名
+
+## 以上插件代码，有一部分是我在网上整理过来，感谢他们。
+
+### 有些人认为自动生成的代码 `sql` 不如自己写优化的好，观点没错。但是认为使用自动生成代码都是垃圾的就不敢恭维了。自动也可以生成sql，只生成 javaBean、空的 xml 文件。
+
 ## 使用姿势
  `pom.xml`
 ```xml
 <build>
-		<plugins>
-			<plugin>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-maven-plugin</artifactId>
-				<version>1.3.7</version>
-				<configuration>
-					<verbose>false</verbose>
-					<overwrite>true</overwrite>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>mysql</groupId>
-						<artifactId>mysql-connector-java</artifactId>
-						<version>5.1.46</version>
-					</dependency>
-					<dependency>
-						<groupId>com.workabee</groupId>
-						<artifactId>mybatis-tool</artifactId>
-						<version>1.0.0</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-		</plugins>
-	</build>
+    <plugins>
+        <plugin>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-maven-plugin</artifactId>
+            <version>1.3.7</version>
+            <configuration>
+                <verbose>false</verbose>
+                <overwrite>true</overwrite>
+            </configuration>
+            <dependencies>
+                <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+                    <version>5.1.46</version>
+                </dependency>
+                <dependency>
+                    <groupId>com.workabee</groupId>
+                    <artifactId>mybatis-tool</artifactId>
+                    <version>1.0.0</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
 
 ```
 
