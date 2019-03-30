@@ -21,8 +21,8 @@
     </build>
     <packaging>jar</packaging>
 
-    <name>mybatis-generator-tool</name>
-    <description>mybatis-generator-tool</description>
+    <name>mybatis-tool</name>
+    <description>mybatis-tool</description>
 
 
     <properties>
