@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.workabee</groupId>
-    <artifactId>mybatis-tool</artifactId>
+    <artifactId>mybatis-plus-tool</artifactId>
     <version>1.0.0</version>
     <build>
         <plugins>
@@ -21,8 +21,8 @@
     </build>
     <packaging>jar</packaging>
 
-    <name>mybatis-tool</name>
-    <description>mybatis-tool</description>
+    <name>mybatis-plus-tool</name>
+    <description>mybatis-plus-tool</description>
 
 
     <properties>

@@ -20,16 +20,19 @@ public class CommentGenerator extends DefaultCommentGenerator {
     @Override
     public void addFieldComment(Field field, IntrospectedTable introspectedTable, IntrospectedColumn introspectedColumn) {
 
-        String doc = "";
         if (!introspectedColumn.getRemarks().trim().equals("")) {
-            doc =
-                    "/**\n" +
-                            "    *  " + introspectedColumn.getRemarks() + "\n" +
-                            "    */";
-
+            field.addJavaDocLine("/**");
+            field.addJavaDocLine(" * " + introspectedColumn.getRemarks());
+            field.addJavaDocLine(" */");
         }
-        if (!doc.equals("")) {
-            field.addJavaDocLine(doc);
+
+
+        String actualColumnName = introspectedColumn.getActualColumnName();
+        if (actualColumnName.equals("id")) {
+            //主键
+            field.addAnnotation("@TableId(value = \"id\", type = IdType.AUTO)");
+        } else {
+            field.addAnnotation("@TableField( \"" + actualColumnName + "\")");
         }
     }
 }

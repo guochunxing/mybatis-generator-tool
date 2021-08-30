@@ -5,6 +5,7 @@ import org.mybatis.generator.api.IntrospectedTable;
 import org.mybatis.generator.api.PluginAdapter;
 import org.mybatis.generator.api.dom.java.Method;
 import org.mybatis.generator.api.dom.java.TopLevelClass;
+import org.mybatis.generator.config.TableConfiguration;
 
 import java.util.List;
 
@@ -22,15 +23,24 @@ public class LombokPlugin extends PluginAdapter {
 
     @Override
     public boolean modelBaseRecordClassGenerated(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
+
+        TableConfiguration configuration = introspectedTable.getTableConfiguration();
+
         //添加domain的import
         topLevelClass.addImportedType("lombok.Data");
         topLevelClass.addImportedType("lombok.Builder");
         topLevelClass.addImportedType("lombok.NoArgsConstructor");
         topLevelClass.addImportedType("lombok.AllArgsConstructor");
+        topLevelClass.addImportedType("lombok.AllArgsConstructor");
+        topLevelClass.addImportedType("com.baomidou.mybatisplus.annotation.IdType");
+        topLevelClass.addImportedType("com.baomidou.mybatisplus.annotation.TableField");
+        topLevelClass.addImportedType("com.baomidou.mybatisplus.annotation.TableId");
+        topLevelClass.addImportedType("com.baomidou.mybatisplus.annotation.TableName");
 
         //添加domain的注解
         topLevelClass.addAnnotation("@Data");
         topLevelClass.addAnnotation("@Builder");
+        topLevelClass.addAnnotation("@TableName(\"" + configuration.getTableName() + "\")");
         topLevelClass.addAnnotation("@NoArgsConstructor");
         topLevelClass.addAnnotation("@AllArgsConstructor");
 
